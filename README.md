@@ -1,3 +1,5 @@
+# This is a testnet for Steem economic changes in the future.
+
 # Steem - The Blockchain That Will Tokenize The Web
 
 Welcome to the official repository for Steem, the blockchain that will revolutionize the web, and soon the blockchain for Smart Media Tokens!
