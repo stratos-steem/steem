@@ -8,46 +8,11 @@
 // Every symbol defined here needs to be handled appropriately in get_config.cpp
 // This is checked by get_config_check.sh called from Dockerfile
 
-#ifdef IS_TEST_NET
-#define STEEM_BLOCKCHAIN_VERSION              ( version(0, 21, 0) )
-
-#define STEEM_INIT_PRIVATE_KEY                (fc::ecc::private_key::regenerate(fc::sha256::hash(std::string("init_key"))))
-#define STEEM_INIT_PUBLIC_KEY_STR             (std::string( steem::protocol::public_key_type(STEEM_INIT_PRIVATE_KEY.get_public_key()) ))
-#define STEEM_CHAIN_ID (fc::sha256::hash("testnet"))
-#define STEEM_ADDRESS_PREFIX                  "TST"
-
-#define STEEM_GENESIS_TIME                    (fc::time_point_sec(1451606400))
-#define STEEM_MINING_TIME                     (fc::time_point_sec(1451606400))
-#define STEEM_CASHOUT_WINDOW_SECONDS          (60*60) /// 1 hr
-#define STEEM_CASHOUT_WINDOW_SECONDS_PRE_HF12 (STEEM_CASHOUT_WINDOW_SECONDS)
-#define STEEM_CASHOUT_WINDOW_SECONDS_PRE_HF17 (STEEM_CASHOUT_WINDOW_SECONDS)
-#define STEEM_SECOND_CASHOUT_WINDOW           (60*60*24*3) /// 3 days
-#define STEEM_MAX_CASHOUT_WINDOW_SECONDS      (60*60*24) /// 1 day
-#define STEEM_UPVOTE_LOCKOUT_HF7              (fc::minutes(1))
-#define STEEM_UPVOTE_LOCKOUT_SECONDS          (60*5)    /// 5 minutes
-#define STEEM_UPVOTE_LOCKOUT_HF17             (fc::minutes(5))
-
-
-#define STEEM_MIN_ACCOUNT_CREATION_FEE          0
-#define STEEM_MAX_ACCOUNT_CREATION_FEE          int64_t(1000000000)
-
-#define STEEM_OWNER_AUTH_RECOVERY_PERIOD                  fc::seconds(60)
-#define STEEM_ACCOUNT_RECOVERY_REQUEST_EXPIRATION_PERIOD  fc::seconds(12)
-#define STEEM_OWNER_UPDATE_LIMIT                          fc::seconds(0)
-#define STEEM_OWNER_AUTH_HISTORY_TRACKING_START_BLOCK_NUM 1
-
-#define STEEM_INIT_SUPPLY                     (int64_t( 250 ) * int64_t( 1000000 ) * int64_t( 1000 ))
-
-/// Allows to limit number of total produced blocks.
-#define TESTNET_BLOCK_LIMIT                   (3000000)
-
-#else // IS LIVE STEEM NETWORK
-
 #define STEEM_BLOCKCHAIN_VERSION              ( version(0, 20, 8) )
 
-#define STEEM_INIT_PUBLIC_KEY_STR             "STM8GC13uCZbP44HzMLV6zPZGwVQ8Nt4Kji8PapsPiNq1BK153XTX"
-#define STEEM_CHAIN_ID fc::sha256()
-#define STEEM_ADDRESS_PREFIX                  "STM"
+#define STEEM_INIT_PUBLIC_KEY_STR             "ETST85eyCZc1Mvh7wJJawHCo5kWM4GYkQJdaKQbUWyjV7wFhKudGYk"
+#define STEEM_CHAIN_ID fc::sha256('economics-testnet')
+#define STEEM_ADDRESS_PREFIX                  "ETST"
 
 #define STEEM_GENESIS_TIME                    (fc::time_point_sec(1458835200))
 #define STEEM_MINING_TIME                     (fc::time_point_sec(1458838800))
